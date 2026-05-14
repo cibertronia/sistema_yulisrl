@@ -1,0 +1,15 @@
+# SQL dumps
+*.sql
+*.zip
+
+# OS files
+Thumbs.db
+desktop.ini
+
+# IDE files
+.idea/
+.vscode/
+
+# Sessions/Temp
+error_log
+/includes/librerias/mPDF/tmp/

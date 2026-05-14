@@ -1,0 +1,5 @@
+Producto;Marca;Modelo;Descripcion;StockCB;PrecioCB;ObservacionesCB;StockLP;PrecioLP;ObservacionesLP;StockSC;PrecioSC;ObservacionesSC;StockTJ;PrecioTJ;ObservacionesTJ
+Producto1;Marca1;Modelo1;Descripcion1;1;10,1;ObservacionesCB1;21;210,1;ObservacionesLP1;31;310,1;ObservacionesSC1;41;410,1;ObservacionesTJ1
+Producto2;Marca2;Modelo2;Descripcion2;2;20,2;ObservacionesCB2;22;220,2;ObservacionesLP2;32;320,2;ObservacionesSC2;42;420,2;ObservacionesTJ2
+Producto3;Marca3;Modelo3;Descripcion3;3;30,3;ObservacionesCB3;23;230,3;ObservacionesLP3;33;330,3;ObservacionesSC3;43;430,3;ObservacionesTJ3
+Producto4;Marca4;Modelo4;Descripcion4;4;40,4;ObservacionesCB4;24;240,4;ObservacionesLP4;34;340,4;ObservacionesSC4;44;440,4;ObservacionesTJ4
