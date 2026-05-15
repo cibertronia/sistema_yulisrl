@@ -56,6 +56,12 @@ include 'php/background.php';
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script type="text/javascript">
     $(document).ready(function() {
+        // Fallback: Si el loader no desaparece en 1.5s, lo ocultamos manualmente
+        setTimeout(function() {
+            $('#page-loader').removeClass('show').addClass('d-none');
+            $('#page-container').addClass('show'); // Asegurar que el contenido sea visible
+        }, 1500);
+
         console.log("Login script initialized");
         $(document).on('submit', '#login', function(e) {
             e.preventDefault();
