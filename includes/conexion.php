@@ -1,9 +1,13 @@
 <?php
 
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', 0); // Desactivado en producción
 ini_set('log_errors', 1);
-ini_set('error_log', 'c:\laragon\www\yulisrl-sistema\logs\debug_errors.log');
+// Ruta de log dinámica según el OS
+$_log_dir = __DIR__ . '/../logs';
+if (!is_dir($_log_dir)) { @mkdir($_log_dir, 0755, true); }
+ini_set('error_log', $_log_dir . '/debug_errors.log');
+unset($_log_dir);
 
 $Error = "Error Principal con la base de datos<br>En la linea:  " . __LINE__;
 $MySQLi = mysqli_connect("localhost", "root", "", "yulisrl_sistema");
