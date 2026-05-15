@@ -1,0 +1,109 @@
+/* @font-face {
+  font-family: CalibriBold;
+  src: url(../Font/Calibri Bold.TTF);
+
+  font-family: CalibriRegular;
+  src: url(../Font/Calibri Regular.ttf);
+
+  font-family: CalibriBoldiTalic;
+  src: url(../Font/Calibri Bold Italic.ttf);
+
+  font-family: CalibriiTalic;
+  src: url(../Font/Calibri Italic.ttf);
+} */
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  width: 21.59cm;
+  /*height: 20cm;*/
+  height: 27.94cm;
+  font-size: 10px;
+  /*font-family: Calibri Regular;*/
+}
+h2{
+  margin-left: 1cm
+}
+.info{
+  width: 100%;
+  margin-left: 1cm;
+  margin-right: 1cm;
+  margin-bottom: 1cm;
+}
+.info2{
+  width: 100%;
+  margin-left: 1cm;
+  margin-right: 1cm;
+  margin-bottom: 1cm;
+}
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align: right;
+}
+.text-center{
+  text-align: center;
+}
+.verde{
+  background-color: #43D96D;
+}
+.azul{
+  background-color: #8ECCF7
+}
+.paddin-th{
+  padding: 15px;
+  font-size: 16px
+}
+.SaltoTabla{
+  width: 100%;
+  margin-left: 1cm;
+  margin-right: 1cm;
+  margin-bottom: 0.6cm;
+  
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.infoFooter{
+  width: 100%;
+  margin-left: 1cm;
+  margin-right: 1cm;
+  margin-top: 5cm
+}
+.infoFooter2{
+  width: 100%;
+  margin-left: 1cm;
+  margin-right: 1cm;
+}
+.imgProduct{
+  width: 100px
+}
+.nameProducto{
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+.amarillo{
+  background-color: #F9F8B8
+}
+.footer{
+  padding: 5px;
+  text-align: left;
+  font-size: 14px;
+}
+.fs-10{
+  font-size: 10px
+}
+.fs-12{
+  font-size: 12px
+}
+.fs-14{
+  font-size: 14px
+}
+.fs-16{
+  font-size: 16px
+}
+.fs-18{
+  font-size: 18px
+}

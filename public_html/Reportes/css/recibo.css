@@ -1,0 +1,71 @@
+body{
+	width: 8in;
+	height: 11in;	
+	font-size: 12px;
+	/*color: #74D784;*/
+}
+header{
+	margin-left: 1.25in;
+	margin-right: 1.25in;
+}
+.nav{
+	width: 100%;
+	text-align: right;	
+	margin-bottom: 20px
+}
+.text-right{
+	text-align: right;
+}
+.text-center{
+	text-align: center;
+}
+.text-left{
+	text-align: left;
+}
+.fs-20{
+	font-size: 20px;
+}
+.tableNav{
+	width: 100%;
+	border-collapse: collapse;
+}
+.th-ciudad{
+	color: #fff;
+	/*background-color: #74D784;*/
+	padding: 5px
+}
+.top-right{
+	width: 100%;
+	margin-left: 1in;
+	border: 1px solid #000;
+	border-spacing: 0;
+	text-align: right;
+	border-radius: 5px
+}
+.text-danger{
+	color: red;
+}
+ .porAnticipo{
+	border: 1px solid;
+	/*border: 1px solid #74D784;*/
+	margin-left: 1.5in;
+}
+footer{
+	margin-top: -12px;
+	margin-left: 1.25in;
+	margin-right: 1.25in;
+}
+section{
+	margin-left: 1.25in;
+	margin-right: 1.25in;
+	border-radius: 10px;
+	border: 1px solid;
+	/*border: 1px solid #74D784;*/
+	padding: 10px;
+}
+.sucursal{
+	margin-top: -10px
+}
+.informaciones{
+	width: 65%;
+}
