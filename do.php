@@ -184,7 +184,7 @@ Swal.fire({
 						//$_SESSION['Cargo']		=	$data['Cargo'];
 						//$_SESSION['Sexo']		=	$data['Sexo']; mysqli_close($MySQLi);
                         session_write_close();
-                        ob_end_clean();
+                        ob_flush();
                         ?>
 <script type="text/javascript">
 location.replace("./");
