@@ -2,6 +2,8 @@
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+ini_set('error_log', 'c:\laragon\www\yulisrl-sistema\logs\debug_errors.log');
 
 $Error = "Error Principal con la base de datos<br>En la linea:  " . __LINE__;
 $MySQLi = mysqli_connect("localhost", "root", "", "yulisrl_sistema");

@@ -1,6 +1,10 @@
 <?php
+    ob_start();
+    ini_set('session.save_path', 'C:/laragon/tmp');
+    ini_set('session.use_strict_mode', 0);
 	session_start();
 	include 'includes/conexion.php';
+    error_log("Do.php Session ID: " . session_id());
 	include 'includes/date.class.php';
 	include 'includes/TeleGram.php';
 	include 'includes/global.php';
@@ -87,14 +91,22 @@ Swal.fire({
 		case 'LOGIN':
 			$User 	=	$_POST['user'];
 			$Pswd 	=	$_POST['pswd'];
+            error_log("Login attempt: User=$User");
 			//VERIFICAMOS SI EL USUARIO EXISTE
 			$queryUser 	=	mysqli_query($MySQLi,"SELECT * FROM Usuarios WHERE Correo='$User' ");
+            if (!$queryUser) {
+                error_log("MySQL Error: " . mysqli_error($MySQLi));
+                die(mysqli_error($MySQLi));
+            }
 			$resultUsers=	mysqli_num_rows($queryUser);
+            error_log("Users found: $resultUsers");
 			if ($resultUsers>0) {
 				$data 	=	mysqli_fetch_assoc($queryUser);
 
 				// RESTRICCIÓN DE HORARIO LABORAL PARA VENDEDORES
 				if ($data['Rango'] == 1) {
+                    error_log("Vendedor login check...");
+					// Hora inicio y final de la jornada laboral
 					// Hora inicio y final de la jornada laboral
 					// Hora final 19:00:00
 					$horaInicio = "08:30:00";
@@ -124,9 +136,12 @@ Swal.fire({
 					}
 				}
 				//VERIFICAMOS SI LA CONTRASEÑA ES VALIDA
-				if (password_verify($Pswd, $data['Contrasena'])) {
+                $is_valid = password_verify($Pswd, $data['Contrasena']);
+                error_log("Password valid: " . ($is_valid ? 'YES' : 'NO'));
+				if ($is_valid) {
 					//VERIFICAMOS SI LA CUENTA ESTÁ ACTIVA
 					if ($data['Estado']==1) {
+                        error_log("Account active, setting session...");
 						$_SESSION['Contrasena']	=	$Pswd;
 						$_SESSION['Estado']		=	$data['Estado'];
 						$_SESSION['idUser']		=	$data['idUser'];
@@ -163,10 +178,12 @@ Swal.fire({
 						//$_SESSION['FullName']	=	$data['Nombres']." ".$data['Apellidos'];
 						//$_SESSION['Correo']		=	$data['Correo'];
 						//$_SESSION['Cargo']		=	$data['Cargo'];
-						//$_SESSION['Sexo']		=	$data['Sexo']; mysqli_close($MySQLi); ?>
+						//$_SESSION['Sexo']		=	$data['Sexo']; mysqli_close($MySQLi);
+                        session_write_close();
+                        ob_end_clean();
+                        ?>
 <script type="text/javascript">
-//location.reload();
-location.replace(" / ");
+location.replace("./");
 </script><?php
 					}else{ mysqli_close($MySQLi); ?>
 <script type="text/javascript">
@@ -5206,4 +5223,3 @@ Swal.fire({
 </script><?php
 		break;
 	}
-?>

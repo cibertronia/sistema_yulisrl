@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -26,7 +26,7 @@ include 'php/background.php';
                 </div>
             </div>
             <div class="login-content">
-                <form id="login" class="margin-bottom-0">
+                <form id="login" method="POST" action="do.php" class="margin-bottom-0">
                     <!-- <h1 class="text-center">SISTEMA PRUEBAS</h1> -->
                     <div class="form-group m-b-20">
                         <input type="hidden" name="action" value="LOGIN">
@@ -54,24 +54,42 @@ include 'php/background.php';
     <script src="assets/js/demo/login-v2.demo.js"></script>
     <script type="text/javascript" src="functions/analitic.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        console.log("Login script initialized");
+        $(document).on('submit', '#login', function(e) {
+            e.preventDefault();
+            console.log("Form submission intercepted");
+            
+            var $form = $(this);
+            var $btn = $form.find('button[type="submit"]');
+            var $spinner = $btn.find('.fa-spinner');
+            
+            $spinner.removeClass('d-none');
+            $btn.attr('disabled', true);
+            
+            $.ajax({
+                url: 'do.php',
+                type: 'POST',
+                dataType: 'html',
+                data: $form.serialize(),
+            })
+            .done(function(data) {
+                console.log("Response received:", data);
+                $spinner.addClass('d-none');
+                $btn.attr('disabled', false);
+                $(".respuesta").html(data);
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+                $spinner.addClass('d-none');
+                $btn.attr('disabled', false);
+                console.error("AJAX Error:", textStatus, errorThrown);
+                // Si falla el AJAX, dejamos que el formulario se envíe de forma normal como respaldo
+                $form.off('submit').submit();
+            });
+        });
+    });
+    </script>
 </body>
 
 </html>
-<script type="text/javascript">
-$("#login").submit(function() {
-    $(".fa-spinner").removeClass('d-none');
-    $(".btn-block").attr('disabled', true);
-    $.ajax({
-            url: 'do.php',
-            type: 'POST',
-            dataType: 'html',
-            data: $(login).serialize(),
-        })
-        .done(function(data) {
-            $(".fa-spinner").addClass('d-none');
-            $(".btn-block").attr('disabled', false);
-            $(".respuesta").html(data);
-        })
-    return false;
-});
-</script>

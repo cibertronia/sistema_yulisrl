@@ -1,6 +1,15 @@
 <?php
+    ob_start();
+    ini_set('session.save_path', 'C:/laragon/tmp');
+    ini_set('session.use_strict_mode', 0);
 	session_start();
 	include 'includes/conexion.php';
+    error_log("Index.php Session ID: " . session_id());
+    error_log("Index.php Session Content: " . print_r($_SESSION, true));
+    // Debug sessions
+    if (isset($_SESSION['idUser'])) {
+        error_log("Index.php Session active: idUser=" . $_SESSION['idUser'] . " Estado=" . ($_SESSION['Estado'] ?? 'N/A'));
+    }
 	include 'includes/date.class.php';
 	include 'includes/global.php';
 	mysqli_query($MySQLi,"SET lc_time_names= 'es_BO' ");
@@ -22,7 +31,7 @@
 			
 			default:
 				session_destroy();
-				header('Location: /');
+				header('Location: ./');
 			break;
 		}
 	}else{
