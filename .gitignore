@@ -13,3 +13,9 @@ desktop.ini
 # Sessions/Temp
 error_log
 /includes/librerias/mPDF/tmp/
+
+# Environment-specific files (NEVER commit these)
+.htaccess
+config.local.php
+diagnostico.php
+logs/
