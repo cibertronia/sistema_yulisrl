@@ -1,6 +1,10 @@
 <?php
     ob_start();
-    ini_set('session.save_path', 'C:/laragon/tmp');
+    // Configuración dinámica de sesiones (Windows vs Linux)
+    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+        if (!is_dir('C:/laragon/tmp')) { @mkdir('C:/laragon/tmp', 0777, true); }
+        ini_set('session.save_path', 'C:/laragon/tmp');
+    }
     ini_set('session.use_strict_mode', 0);
 	session_start();
 	include 'includes/conexion.php';
