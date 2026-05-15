@@ -1,0 +1,4 @@
+AuthName "sistema-yulisrl.cibertronia.cloud statistics"
+AuthType Basic
+AuthUserFile /home/cibertronia/domains/sistema-yulisrl.cibertronia.cloud/.awstats-htpasswd
+require valid-user
