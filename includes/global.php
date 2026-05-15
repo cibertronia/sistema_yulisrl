@@ -9,7 +9,7 @@ use App\Models\Product;
 use App\Models\HistoryProduct;
 
 	function precioDolar($MySQLi) {
-		$queryDolar	=	mysqli_query($MySQLi,"SELECT * FROM precio");
+		$queryDolar	=	mysqli_query($MySQLi,"SELECT * FROM Precio");
 		$dataDolar 	= mysqli_fetch_assoc($queryDolar);
 		$PrecioDolar= $dataDolar['precioDolar'];
 		echo $PrecioDolar;
