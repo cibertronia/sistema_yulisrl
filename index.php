@@ -2,9 +2,12 @@
     ob_start();
     // Configuración dinámica de sesiones (Windows vs Linux)
     if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-        if (!is_dir('C:/laragon/tmp')) { @mkdir('C:/laragon/tmp', 0777, true); }
-        ini_set('session.save_path', 'C:/laragon/tmp');
+        $_tmp_dir = 'C:/laragon/tmp';
+    } else {
+        $_tmp_dir = '/home/cibertronia/domains/sistema-yulisrl.cibertronia.cloud/tmp';
     }
+    if (!is_dir($_tmp_dir)) { @mkdir($_tmp_dir, 0777, true); }
+    ini_set('session.save_path', $_tmp_dir);
     ini_set('session.use_strict_mode', 0);
 	session_start();
 	include 'includes/conexion.php';
